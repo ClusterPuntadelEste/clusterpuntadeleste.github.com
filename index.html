@@ -173,6 +173,40 @@ footer p{color:#e9f0f8}
 .ov-card p{margin:0;color:var(--texto)}
 .ov-close{position:absolute;right:12px;top:10px;border:0;background:transparent;font-size:20px;line-height:1;cursor:pointer;color:#102542}
 .ov-card::before{content:"";display:block;width:84px;height:4px;background:var(--amarillo);border-radius:4px;margin-bottom:10px}
+/* ===== PB: estilos de interacción y chips móviles ===== */
+.tag,
+.chip-alt{
+  cursor:pointer;
+  outline: none;
+  transition: transform .08s ease, box-shadow .12s ease, background .12s ease, color .12s ease;
+}
+.tag:focus-visible,
+.chip-alt:focus-visible{
+  box-shadow: 0 0 0 3px rgba(247,201,72,.55);
+}
+
+/* Chips móviles fuertes (fondo azul, texto blanco) */
+.radial-alt .chip-alt{
+  background: var(--azul);
+  color: #fff;
+  border: 1px solid rgba(23,58,105,.2);
+}
+.radial-alt .chip-alt:hover{ transform: translateY(-1px); }
+.radial-alt .chip-alt:active{ transform: translateY(0); }
+
+/* Estados activos en desktop (resalta el tag tocado) */
+.tag.is-active{
+  box-shadow: 0 0 0 4px rgba(247,201,72,.35), 0 1px 0 0 #fff inset;
+}
+
+/* Overlay (por si faltaba) */
+.overlay{position:fixed;inset:0;background:rgba(23,58,105,.30);display:none;align-items:center;justify-content:center;padding:20px;z-index:60}
+.overlay.show{display:flex}
+.ov-card{max-width:640px;width:min(92vw,640px);background:#fff;border-radius:18px;border:1px solid var(--borde);padding:clamp(16px,2.4vw,24px);box-shadow:0 10px 40px rgba(0,0,0,.12);position:relative}
+.ov-card h3{margin:0 0 .25em;font-weight:900}
+.ov-card p{margin:0;color:var(--texto)}
+.ov-close{position:absolute;right:12px;top:10px;border:0;background:transparent;font-size:20px;line-height:1;cursor:pointer;color:#102542}
+.ov-card::before{content:"";display:block;width:84px;height:4px;background:var(--amarillo);border-radius:4px;margin-bottom:10px}
 
 </style>
 
@@ -559,6 +593,79 @@ document.querySelectorAll('.tag, .chip-alt').forEach(el=>{
     pupil.style.transform = `translate(calc(-50% + ${dx*k}px), calc(-50% + ${dy*k}px))`;
   }
   function reset(){ pupil.style.transform = 'translate(-50%,-50%)'; }
+  ring.addEventListener('mousemove', e=>moveFromPoint(e));
+  ring.addEventListener('mouseenter', e=>moveFromPoint(e));
+  ring.addEventListener('mouseleave', reset);
+  ring.addEventListener('touchmove', e=>{ if(e.touches[0]) moveFromPoint(e.touches[0]); }, {passive:true});
+  ring.addEventListener('touchend', reset);
+})();
+</script>
+<script>
+// --------- Diccionario de textos ----------
+const PB_TEXT = {
+  bienestar: "Equilibrio físico, mental, emocional, ambiental y social con base científica.",
+  longevidad: "Vida con salud, funcionalidad y sentido mediante hábitos, entornos y políticas de envejecimiento activo.",
+  sostenibilidad: "Armonía entre productividad, inclusión social y equilibrio ecológico.",
+  territorio: "Integración de políticas, empresas y estilos de vida para generar salud, cohesión y prosperidad.",
+  integrativa: "Convencional + terapias con evidencia; persona como unidad cuerpo-mente-entorno.",
+  funcional: "Prevención y personalización desde las causas de los desequilibrios.",
+  pine: "Interacción psico-inmuno-neuro-endocrina que vincula emociones, cuerpo y salud.",
+  matriz: "Marco con siete dimensiones: Dieta, Ejercicio, Música, Med. Integrativa, Meditación, Ambiente y Situación."
+};
+
+// --------- Overlay ----------
+const $overlay = document.getElementById('pbOverlay');
+const $ovTitle = document.getElementById('ovTitle');
+const $ovText  = document.getElementById('ovText');
+
+function openPB(key, label, el){
+  $ovTitle.textContent = label || key;
+  $ovText.textContent  = PB_TEXT[key] || "";
+  $overlay.classList.add('show');
+  $overlay.setAttribute('aria-hidden','false');
+  document.body.style.overflow = 'hidden';
+  // marca visual del activo (solo desktop)
+  document.querySelectorAll('.tag').forEach(t=>t.classList.remove('is-active'));
+  if(el && el.classList.contains('tag')) el.classList.add('is-active');
+}
+function closePB(){
+  $overlay.classList.remove('show');
+  $overlay.setAttribute('aria-hidden','true');
+  document.body.style.overflow = '';
+  document.querySelectorAll('.tag').forEach(t=>t.classList.remove('is-active'));
+}
+
+if($overlay){
+  $overlay.addEventListener('click', e=>{ if(e.target === $overlay) closePB(); });
+  $overlay.querySelector('.ov-close').addEventListener('click', closePB);
+  document.addEventListener('keydown', e=>{ if(e.key === 'Escape') closePB(); });
+}
+
+// --------- Delegación de eventos (tags y chips) ----------
+document.addEventListener('click', (e)=>{
+  const btn = e.target.closest('.tag, .chip-alt');
+  if(!btn) return;
+  const key = btn.getAttribute('data-key');
+  openPB(key, btn.textContent.trim(), btn);
+});
+
+// --------- Pupila que sigue el cursor/touch ----------
+(function(){
+  const ring  = document.getElementById('ring');
+  if(!ring) return;
+  const orb   = ring.querySelector('.orb');
+  const pupil = ring.querySelector('.pupil');
+  const max = 18;
+
+  function moveFromPoint(pt){
+    const ob = orb.getBoundingClientRect();
+    const cx = ob.left + ob.width/2, cy = ob.top + ob.height/2;
+    const dx = pt.clientX - cx, dy = pt.clientY - cy;
+    const dist = Math.hypot(dx,dy) || 1, k = Math.min(1, max / dist);
+    pupil.style.transform = `translate(calc(-50% + ${dx*k}px), calc(-50% + ${dy*k}px))`;
+  }
+  function reset(){ pupil.style.transform = 'translate(-50%,-50%)'; }
+
   ring.addEventListener('mousemove', e=>moveFromPoint(e));
   ring.addEventListener('mouseenter', e=>moveFromPoint(e));
   ring.addEventListener('mouseleave', reset);
