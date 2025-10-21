@@ -208,6 +208,16 @@ footer p{color:#e9f0f8}
 .ov-close{position:absolute;right:12px;top:10px;border:0;background:transparent;font-size:20px;line-height:1;cursor:pointer;color:#102542}
 .ov-card::before{content:"";display:block;width:84px;height:4px;background:var(--amarillo);border-radius:4px;margin-bottom:10px}
 
+  /* CTA del overlay */
+.ov-actions{margin-top:14px}
+.btn-cta{
+  display:inline-block; padding:10px 16px; border-radius:999px;
+  background:var(--azul); color:#fff; font-weight:900; text-decoration:none;
+  border:2px solid var(--azul); transition:transform .08s ease, background .15s ease;
+}
+.btn-cta:hover{ transform:translateY(-1px) }
+.btn-cta:active{ transform:translateY(0) }
+
 </style>
 
 <!-- Schema.org -->
@@ -335,13 +345,18 @@ footer p{color:#e9f0f8}
   </div>
 
   <!-- Overlay -->
-  <div class="overlay" id="pbOverlay" aria-hidden="true">
-    <div class="ov-card" role="dialog" aria-modal="true" aria-labelledby="ovTitle" aria-describedby="ovText">
-      <button class="ov-close" type="button" aria-label="Cerrar">✕</button>
-      <h3 id="ovTitle">Título</h3>
-      <p id="ovText">Descripción</p>
+<div class="overlay" id="pbOverlay" aria-hidden="true">
+  <div class="ov-card" role="dialog" aria-modal="true" aria-labelledby="ovTitle" aria-describedby="ovText">
+    <button class="ov-close" type="button" aria-label="Cerrar">✕</button>
+    <h3 id="ovTitle">Título</h3>
+    <p id="ovText">Descripción</p>
+
+    <!-- CTA solo para “Matriz DEMMMAS” -->
+    <div class="ov-actions" id="ovActions" style="display:none">
+      <a href="#demmmas" class="btn-cta" id="ovCta">Conocer DEMMMAS</a>
     </div>
   </div>
+</div>
 </section>
 
 
@@ -617,6 +632,8 @@ const PB_TEXT = {
 const $overlay = document.getElementById('pbOverlay');
 const $ovTitle = document.getElementById('ovTitle');
 const $ovText  = document.getElementById('ovText');
+  const $ovActions = document.getElementById('ovActions');
+  const $ovCta     = document.getElementById('ovCta');
 
 function openPB(key, label, el){
   $ovTitle.textContent = label || key;
@@ -627,6 +644,12 @@ function openPB(key, label, el){
   // marca visual del activo (solo desktop)
   document.querySelectorAll('.tag').forEach(t=>t.classList.remove('is-active'));
   if(el && el.classList.contains('tag')) el.classList.add('is-active');
+   // CTA condicional para Matriz DEMMMAS
+if(key === 'matriz'){
+  $ovActions.style.display = 'block';
+} else {
+  $ovActions.style.display = 'none';
+}
 }
 function closePB(){
   $overlay.classList.remove('show');
@@ -647,6 +670,16 @@ document.addEventListener('click', (e)=>{
   if(!btn) return;
   const key = btn.getAttribute('data-key');
   openPB(key, btn.textContent.trim(), btn);
+ 
+if($ovCta){
+  $ovCta.addEventListener('click', (e)=>{
+    e.preventDefault();
+    closePB();
+    const target = document.querySelector('#demmmas');
+    if(target){ target.scrollIntoView({behavior:'smooth', block:'start'}); }
+  });
+}
+
 });
 
 // --------- Pupila que sigue el cursor/touch ----------
@@ -656,6 +689,8 @@ document.addEventListener('click', (e)=>{
   const orb   = ring.querySelector('.orb');
   const pupil = ring.querySelector('.pupil');
   const max = 18;
+
+
 
   function moveFromPoint(pt){
     const ob = orb.getBoundingClientRect();
