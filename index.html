@@ -10,12 +10,12 @@
 <meta name="theme-color" content="#173A69">
 
 <!-- Canonical / OG / Twitter (cambiá por tu dominio real si querés) -->
-<link id="canonical" rel="canonical" href="https://tusitio.example/">
+<link id="canonical" rel="canonical" href="https://clusterpuntadeleste.github.io/">
 <meta property="og:site_name" content="Cluster Wellness Lifestyle Punta del Este">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Cluster Wellness Lifestyle Punta del Este — Puro Bienestar">
 <meta property="og:description" content="Ciencia aplicada, longevidad e innovación todo el año. DEMMMAS y certificación Sello Punta del Este Puro Bienestar.">
-<meta property="og:url" content="https://tusitio.example/">
+<meta property="og:url" content="https://clusterpuntadeleste.github.io/">
 <meta property="og:image" content=""https://clusterpuntadeleste.github.io/og-image.png"">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Cluster Wellness Lifestyle Punta del Este — Puro Bienestar">
@@ -165,6 +165,15 @@ footer{background:var(--azul);color:#fff;padding:calc(var(--air)*1.2) 0}
 footer p{color:#e9f0f8}
 .footer-social{display:flex;gap:14px;flex-wrap:wrap;margin-top:10px}
 .icon-social{width:22px;height:22px;vertical-align:-4px}
+  /* Overlay Puro Bienestar */
+.overlay{position:fixed;inset:0;background:rgba(23,58,105,.30);display:none;align-items:center;justify-content:center;padding:20px;z-index:60}
+.overlay.show{display:flex}
+.ov-card{max-width:640px;width:min(92vw,640px);background:#fff;border-radius:18px;border:1px solid var(--borde);padding:clamp(16px,2.4vw,24px);box-shadow:0 10px 40px rgba(0,0,0,.12);position:relative}
+.ov-card h3{margin:0 0 .25em;font-weight:900}
+.ov-card p{margin:0;color:var(--texto)}
+.ov-close{position:absolute;right:12px;top:10px;border:0;background:transparent;font-size:20px;line-height:1;cursor:pointer;color:#102542}
+.ov-card::before{content:"";display:block;width:84px;height:4px;background:var(--amarillo);border-radius:4px;margin-bottom:10px}
+
 </style>
 
 <!-- Schema.org -->
@@ -265,9 +274,7 @@ footer p{color:#e9f0f8}
     <!-- Desktop/Tablet -->
     <div class="radial">
       <div class="ring" aria-label="Mapa de conceptos" id="ring">
-        <!-- Centro interactivo -->
         <div class="orb" aria-hidden="true"><span class="pupil"></span></div>
-
         <button class="tag t1" data-key="bienestar">Bienestar</button>
         <button class="tag t2" data-key="longevidad">Longevidad</button>
         <button class="tag t3" data-key="sostenibilidad">Sostenibilidad</button>
@@ -276,36 +283,33 @@ footer p{color:#e9f0f8}
         <button class="tag t6" data-key="funcional">Medicina Funcional</button>
         <button class="tag t7" data-key="pine">PINE</button>
         <button class="tag t8" data-key="matriz">Matriz DEMMMAS</button>
-        <div class="tooltip" id="tooltip" role="status" aria-live="polite"></div>
       </div>
       <div class="radial-desc"><small>Tip: pasá el mouse o tocá un concepto.</small></div>
     </div>
 
-    <!-- Mobile -->
+    <!-- Mobile: cuadraditos -->
     <div class="radial-alt" aria-label="Conceptos clave">
-      <div class="chip-alt">Bienestar</div>
-      <div class="chip-alt">Longevidad</div>
-      <div class="chip-alt">Sostenibilidad</div>
-      <div class="chip-alt">Territorio saludable</div>
-      <div class="chip-alt">Medicina Integrativa</div>
-      <div class="chip-alt">Medicina Funcional</div>
-      <div class="chip-alt">PINE</div>
-      <div class="chip-alt">Matriz DEMMMAS</div>
+      <button class="chip-alt" data-key="bienestar">Bienestar</button>
+      <button class="chip-alt" data-key="longevidad">Longevidad</button>
+      <button class="chip-alt" data-key="sostenibilidad">Sostenibilidad</button>
+      <button class="chip-alt" data-key="territorio">Territorio saludable</button>
+      <button class="chip-alt" data-key="integrativa">Medicina Integrativa</button>
+      <button class="chip-alt" data-key="funcional">Medicina Funcional</button>
+      <button class="chip-alt" data-key="pine">PINE</button>
+      <button class="chip-alt" data-key="matriz">Matriz DEMMMAS</button>
     </div>
+  </div>
 
-    <!-- Accordeones -->
-    <div class="panel" style="margin-top:18px">
-      <details><summary>Bienestar</summary><p>Equilibrio físico, mental, emocional, ambiental y social, sustentado en evidencia y en interacciones humanas y territoriales de calidad.</p></details>
-      <details><summary>Longevidad</summary><p>Vida con salud, funcionalidad y sentido mediante hábitos, entornos y políticas de envejecimiento activo.</p></details>
-      <details><summary>Sostenibilidad</summary><p>Armonía entre productividad, inclusión social y equilibrio ecológico.</p></details>
-      <details><summary>Territorio saludable</summary><p>Integración de políticas, empresas y estilos de vida para generar salud, cohesión y prosperidad.</p></details>
-      <details><summary>Medicina Integrativa</summary><p>Convencional + terapias complementarias basadas en evidencia, enfoque cuerpo-mente-entorno.</p></details>
-      <details><summary>Medicina Funcional</summary><p>Prevención y personalización desde las causas subyacentes de los desequilibrios.</p></details>
-      <details><summary>PINE</summary><p>Interacción de sistemas psicológico, inmunológico, neurológico y endocrino que vincula emociones, cuerpo y salud.</p></details>
-      <details><summary>Matriz DEMMMAS</summary><p>Marco con siete dimensiones: Dieta, Ejercicio, Música, Med. Integrativa, Meditación, Ambiente y Situación.</p></details>
+  <!-- Overlay -->
+  <div class="overlay" id="pbOverlay" aria-hidden="true">
+    <div class="ov-card" role="dialog" aria-modal="true" aria-labelledby="ovTitle" aria-describedby="ovText">
+      <button class="ov-close" type="button" aria-label="Cerrar">✕</button>
+      <h3 id="ovTitle">Título</h3>
+      <p id="ovText">Descripción</p>
     </div>
   </div>
 </section>
+
 
 <!-- DEMMMAS -->
 <section id="demmmas">
@@ -501,6 +505,68 @@ if(ring){
   ring.addEventListener('touchend', reset);
 })();
 </script>
+  <script>
+// Textos
+const defs = {
+  bienestar: "Equilibrio físico, mental, emocional, ambiental y social con base científica.",
+  longevidad: "Vida con salud, funcionalidad y sentido mediante hábitos, entornos y políticas de envejecimiento activo.",
+  sostenibilidad: "Armonía entre productividad, inclusión social y equilibrio ecológico.",
+  territorio: "Integración de políticas, empresas y estilos de vida para generar salud, cohesión y prosperidad.",
+  integrativa: "Convencional + terapias con evidencia; persona como unidad cuerpo-mente-entorno.",
+  funcional: "Prevención y personalización desde las causas de los desequilibrios.",
+  pine: "Interacción psico-inmuno-neuro-endocrina que vincula emociones, cuerpo y salud.",
+  matriz: "Marco con siete dimensiones: Dieta, Ejercicio, Música, Med. Integrativa, Meditación, Ambiente y Situación."
+};
+
+// Overlay
+const overlay = document.getElementById('pbOverlay');
+const ovTitle  = document.getElementById('ovTitle');
+const ovText   = document.getElementById('ovText');
+const ring     = document.getElementById('ring');
+
+function openOverlay(key, label){
+  ovTitle.textContent = label || key;
+  ovText.textContent  = defs[key] || "";
+  overlay.classList.add('show');
+  overlay.setAttribute('aria-hidden','false');
+  document.body.style.overflow='hidden';
+}
+function closeOverlay(){
+  overlay.classList.remove('show');
+  overlay.setAttribute('aria-hidden','true');
+  document.body.style.overflow='';
+}
+overlay.addEventListener('click', (e)=>{ if(e.target === overlay) closeOverlay(); });
+overlay.querySelector('.ov-close').addEventListener('click', closeOverlay);
+document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeOverlay(); });
+
+// Bind clicks (anillo + mobile chips)
+document.querySelectorAll('.tag, .chip-alt').forEach(el=>{
+  el.addEventListener('click', ()=> openOverlay(el.dataset.key, el.textContent.trim()));
+});
+
+// Pupila que sigue el cursor/touch
+(function(){
+  if(!ring) return;
+  const orb   = ring.querySelector('.orb');
+  const pupil = ring.querySelector('.pupil');
+  const max = 18;
+  function moveFromPoint(pt){
+    const ob = orb.getBoundingClientRect();
+    const cx = ob.left + ob.width/2, cy = ob.top + ob.height/2;
+    const dx = pt.clientX - cx, dy = pt.clientY - cy;
+    const dist = Math.hypot(dx,dy) || 1, k = Math.min(1, max / dist);
+    pupil.style.transform = `translate(calc(-50% + ${dx*k}px), calc(-50% + ${dy*k}px))`;
+  }
+  function reset(){ pupil.style.transform = 'translate(-50%,-50%)'; }
+  ring.addEventListener('mousemove', e=>moveFromPoint(e));
+  ring.addEventListener('mouseenter', e=>moveFromPoint(e));
+  ring.addEventListener('mouseleave', reset);
+  ring.addEventListener('touchmove', e=>{ if(e.touches[0]) moveFromPoint(e.touches[0]); }, {passive:true});
+  ring.addEventListener('touchend', reset);
+})();
+</script>
+
 </body>
 </html>
 
