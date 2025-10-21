@@ -1,0 +1,506 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Cluster Wellness Lifestyle Punta del Este — Puro Bienestar</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- SEO -->
+<meta name="description" content="Cluster Wellness Lifestyle Punta del Este: ciencia, innovación y pertenencia local. DEMMMAS, certificación Sello Punta del Este Puro Bienestar y agenda institucional.">
+<meta name="theme-color" content="#173A69">
+
+<!-- Canonical / OG / Twitter (cambiá por tu dominio real si querés) -->
+<link id="canonical" rel="canonical" href="https://tusitio.example/">
+<meta property="og:site_name" content="Cluster Wellness Lifestyle Punta del Este">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Cluster Wellness Lifestyle Punta del Este — Puro Bienestar">
+<meta property="og:description" content="Ciencia aplicada, longevidad e innovación todo el año. DEMMMAS y certificación Sello Punta del Este Puro Bienestar.">
+<meta property="og:url" content="https://tusitio.example/">
+<meta property="og:image" content="https://tusitio.example/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Cluster Wellness Lifestyle Punta del Este — Puro Bienestar">
+<meta name="twitter:description" content="Ciencia aplicada, longevidad e innovación todo el año.">
+<meta name="twitter:image" content="https://tusitio.example/og-image.png">
+
+<!-- Favicons / Manifest (estos sí pueden quedar con / si subís los PNG a la raíz del repo) -->
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+
+<!-- Manrope -->
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+
+<!-- Google Analytics 4 (reemplazá el ID) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX'); // ← tu GA4
+</script>
+
+<style>
+:root{
+  --azul:#173A69; --amarillo:#F7C948; --blanco:#FFFFFF;
+  --borde: rgba(23,58,105,.18); --texto: rgba(23,58,105,.92);
+  --gris: rgba(23,58,105,.50); --maxw:1140px; --air:clamp(14px,2.4vw,32px); --radius:20px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--blanco);color:var(--azul)}
+body{font-family:Manrope,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.55}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+h1,h2,h3{margin:0 0 .45em}
+h1{font-weight:900;font-size:clamp(30px,4.2vw,52px);text-align:center;letter-spacing:.2px}
+h2{font-weight:800;font-size:clamp(22px,3vw,32px)}
+h3{font-weight:800;font-size:clamp(18px,2.2vw,22px)}
+p,li{font-weight:500;font-size:clamp(15px,1.25vw,18px);color:var(--texto)}
+small{color:var(--gris)}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--air)}
+section{padding:calc(var(--air)*1.4) 0}
+.panel{border:1px solid var(--borde);border-radius:var(--radius);padding:clamp(16px,2.2vw,26px);background:var(--blanco)}
+.band{background:linear-gradient(180deg,#fff,#f8fbff);border-top:1px solid var(--borde);border-bottom:1px solid var(--borde)}
+.grid-2{display:grid;gap:clamp(16px,2.6vw,32px)}
+@media(min-width:980px){.grid-2{grid-template-columns:1fr 1fr}}
+html{scroll-behavior:smooth}
+:focus-visible{outline:3px solid rgba(247,201,72,.5);outline-offset:2px;border-radius:6px}
+
+/* Header + menú */
+header{position:sticky;top:0;z-index:50;background:var(--blanco);border-bottom:1px solid var(--borde)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:10px 0}
+.logo{height:56px;width:auto;display:block}
+.nav ul{list-style:none;margin:0;padding:0;display:flex;gap:18px;align-items:center}
+.nav a{display:inline-block;padding:10px 8px;font-weight:700;white-space:nowrap}
+.cta{background:var(--azul);color:var(--blanco);padding:10px 16px;border-radius:999px;text-transform:uppercase;font-weight:900;border:2px solid transparent}
+.cta:hover{background:#0f2a4a;border-color:var(--amarillo)}
+/* puntito amarillo entre items (no aplica al CTA) */
+.nav li+li:not(.is-cta)::before{
+  content:"";display:inline-block;width:6px;height:6px;border-radius:50%;
+  background:var(--amarillo);margin:0 10px 3px 0;
+}
+.nav li.is-cta{margin-left:6px}
+.burger{display:none;background:none;border:0;font:inherit;font-weight:900}
+@media(max-width:960px){
+  .burger{display:block}
+  .nav ul{display:none;position:absolute;left:0;right:0;top:100%;background:#fff;border-bottom:1px solid var(--borde);flex-direction:column}
+  .nav.open ul{display:flex}
+  .nav li{width:100%;border-top:1px solid var(--borde)}
+  .nav a{padding:14px 20px}
+  .nav li+li:not(.is-cta)::before{display:none}
+}
+
+/* Hero */
+.hero{position:relative;overflow:hidden;padding:clamp(40px,8vw,86px) 0;background:linear-gradient(180deg,rgba(23,58,105,.06),#fff)}
+.hero .title{max-width:1000px;margin:0 auto;text-align:center}
+.badge{display:inline-flex;align-items:center;gap:10px;margin:10px auto 0;padding:8px 14px;border-radius:999px;background:var(--amarillo);color:#18243a;font-weight:900;text-transform:uppercase;letter-spacing:.02em}
+.hero .subtitle{font-weight:800;font-size:clamp(16px,1.4vw,20px);margin-top:10px}
+.hero svg{position:absolute;left:50%;bottom:-10px;transform:translateX(-50%);width:min(1100px,140%);opacity:.12}
+.hero .sun{fill:var(--amarillo);opacity:.7}
+
+/* Títulos con acento */
+.section-title{position:relative;text-align:center;margin-bottom:12px}
+.section-title::after{content:"";display:block;width:90px;height:3px;margin:10px auto 0;background:var(--amarillo);border-radius:3px}
+
+/* Radial desktop/tablet */
+.radial{display:grid;place-items:center;gap:18px}
+.ring{position:relative; width:min(560px,86vw); aspect-ratio:1/1; border:1px dashed var(--borde); border-radius:50%;
+  background:radial-gradient(circle at center, #fff 61%, rgba(23,58,105,.04) 61%)}
+.tag{position:absolute; transform:translate(-50%,-50%); padding:8px 12px; border:1px solid var(--borde); background:#fff; border-radius:999px; font-weight:800; white-space:nowrap; transition:.2s;}
+.tag:focus{outline:3px solid rgba(23,58,105,.18)}
+.tag.active{border-color:rgba(247,201,72,.8); box-shadow:0 0 0 3px rgba(247,201,72,.25)}
+.tag.t1{top:6%;  left:50%} .tag.t2{top:18%; left:82%}
+.tag.t3{top:42%; left:94%} .tag.t4{top:74%; left:82%}
+.tag.t5{top:94%; left:50%} .tag.t6{top:74%; left:18%}
+.tag.t7{top:42%; left:6%}  .tag.t8{top:18%; left:18%}
+.tooltip{position:absolute; z-index:5; transform:translate(-50%,-100%); min-width:220px; max-width:320px;background:var(--amarillo); color:#18243a; border-radius:12px; padding:10px 12px; font-weight:700; box-shadow:0 2px 0 rgba(23,58,105,.08); display:none}
+.tooltip::after{content:""; position:absolute; left:50%; bottom:-8px; transform:translateX(-50%); border:8px solid transparent; border-top-color:var(--amarillo)}
+
+/* Orb central + pupil */
+.orb{
+  position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);
+  width:min(140px,26%); aspect-ratio:1/1; border-radius:50%;
+  background:#1f3253; box-shadow: inset 0 0 0 2px rgba(23,58,105,.06);
+}
+.pupil{
+  position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);
+  width:18px; height:18px; border-radius:50%; background:#F7C948; transition: transform .08s linear;
+}
+
+/* Mobile: tarjetas */
+.radial-alt{display:none}
+@media(max-width:900px){
+  .radial{display:none}
+  .radial-alt{display:grid; grid-template-columns:1fr 1fr; gap:10px}
+  .chip-alt{border:1px solid var(--borde); background:#fff; border-radius:14px; text-align:center; padding:14px; font-weight:800}
+}
+
+/* DEMMMAS */
+.matrix{display:grid;gap:14px;grid-template-columns:repeat(1,1fr)}
+@media(min-width:720px){.matrix{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1080px){.matrix{grid-template-columns:repeat(3,1fr)}}
+.tile{position:relative; border:1px solid var(--borde); border-radius:18px; padding:18px; background:#fff}
+.tile::after{content:""; position:absolute; left:18px; right:18px; bottom:-8px; height:1px; background:linear-gradient(90deg, transparent, rgba(23,58,105,.18), transparent)}
+.tile:last-child::after{display:none}
+.pill{display:inline-flex;align-items:center;gap:10px;padding:8px 12px;border-radius:999px;background:#fff;border:1px solid var(--borde);margin-bottom:10px}
+.letter{width:28px;height:28px;border-radius:50%;background:var(--azul);color:#fff;display:grid;place-items:center;font-weight:900}
+.icon-mini{width:22px;height:22px;color:var(--azul);vertical-align:middle;margin-right:6px}
+.spark{display:inline-block;width:8px;height:8px;background:var(--amarillo);border-radius:50%;margin-left:8px}
+.callout{border:1px solid var(--borde);border-radius:16px;background:#fff;padding:14px;margin-top:14px;position:relative}
+.callout::before{content:"";position:absolute;left:18px;top:-2px;width:80px;height:4px;background:var(--amarillo);border-radius:4px}
+
+/* Agenda / Contacto / Footer */
+.evento{background:var(--amarillo);border-radius:18px;padding:clamp(16px,2.2vw,26px)}
+.evento .cta{background:#18243a;border-color:transparent}
+.links{display:flex;flex-wrap:wrap;gap:12px}
+.chip{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:999px;border:1px solid var(--borde);text-decoration:none;font-weight:700}
+.chip:hover{background:#f3f7fc}
+form{display:grid;gap:14px}
+input,select,textarea{width:100%;padding:14px;border:1px solid var(--borde);border-radius:14px;background:#fff;color:#173A69;font:inherit;font-weight:500}
+label{font-weight:700} input::placeholder{color:var(--gris)}
+.btn{appearance:none;border:0;cursor:pointer;border-radius:999px;padding:14px 22px;font-weight:900;text-transform:uppercase;background:var(--azul);color:#fff;border:2px solid transparent}
+.btn:hover{filter:brightness(.95);border-color:var(--amarillo)}
+.note{font-size:12px;color:var(--gris)}
+footer{background:var(--azul);color:#fff;padding:calc(var(--air)*1.2) 0}
+footer p{color:#e9f0f8}
+.footer-social{display:flex;gap:14px;flex-wrap:wrap;margin-top:10px}
+.icon-social{width:22px;height:22px;vertical-align:-4px}
+</style>
+
+<!-- Schema.org -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Cluster Wellness Lifestyle Punta del Este",
+  "url": "https://tusitio.example/",
+  "logo": "https://tusitio.example/favicon-32x32.png",
+  "sameAs": [
+    "https://instagram.com/clusterpuntadeleste",
+    "http://linkedin.com/company/clusterpuntadeleste",
+    "mailto:ClusterPuntadelEsteMail@gmail.com"
+  ]
+}
+</script>
+</head>
+<body data-site-url="https://tusitio.example/"><!-- cambiá por tu dominio si querés -->
+
+<!-- Header -->
+<header>
+  <div class="wrap">
+    <nav class="nav" id="nav">
+      <!-- Logo PNG con ruta relativa (si el PNG está en la raíz del repo lo ve siempre) -->
+      <a href="#inicio" aria-label="Inicio">
+        <img class="logo" src="./apple-touch-icon.png" alt="Cluster Wellness Lifestyle Punta del Este" decoding="async">
+      </a>
+
+      <button class="burger" aria-label="Menú" onclick="document.getElementById('nav').classList.toggle('open')">☰</button>
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#purobienestar">Puro Bienestar</a></li>
+        <li><a href="#demmmas">DEMMMAS</a></li>
+        <li><a href="#agenda">Agenda</a></li>
+        <li class="is-cta"><a class="cta" href="#contacto">Unite / Contacto</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- Hero -->
+<section id="inicio" class="hero">
+  <div class="wrap">
+    <div class="title">
+      <h1>Cluster Wellness Lifestyle Punta del Este</h1>
+      <div class="badge">Punta del Este — Puro Bienestar</div>
+      <p class="subtitle">Océano, bosques e infraestructura internacional con comunidad científica: salud, longevidad e innovación todo el año.</p>
+    </div>
+  </div>
+  <svg viewBox="0 0 1200 220" aria-hidden="true">
+    <path d="M0,160 Q300,120 600,160 T1200,160 L1200,220 L0,220 Z" fill="currentColor" style="color:#173A69; opacity:.12"/>
+    <g style="color:#173A69; opacity:.12" fill="currentColor">
+      <rect x="280" y="60" width="28" height="100" rx="12"/>
+      <rect x="320" y="40" width="30" height="120" rx="12"/>
+      <rect x="362" y="50" width="30" height="110" rx="12"/>
+      <rect x="404" y="62" width="28" height="98" rx="12"/>
+      <rect x="444" y="80" width="26" height="80" rx="12"/>
+    </g>
+    <circle cx="1040" cy="40" r="12" class="sun"/>
+  </svg>
+</section>
+
+<!-- Presentación -->
+<section id="presentacion">
+  <div class="wrap grid-2">
+    <div class="panel">
+      <h2>Qué es el Clúster</h2>
+      <p><strong>El Clúster Wellness Life Style Punta del Este</strong> es un instrumento estratégico para fortalecer el desarrollo territorial basado en conocimiento, innovación y calidad de vida. Articula actores públicos, privados y académicos en torno a las industrias del bienestar, promoviendo un modelo productivo sostenible y humanizado que posicione a Maldonado como territorio líder en longevidad, salud y sostenibilidad.</p>
+      <p>Integra fundamentos del nuevo paradigma médico —Medicina Integrativa, Medicina Funcional y Psico-Inmuno-Neuro-Endocrinología (PINE)— con la matriz <strong>DEMMMAS</strong> (Dieta, Ejercicio, Música, Medicina Integrativa, Meditación, Ambiente y Situación) para consolidar un ecosistema de innovación territorial centrado en bienestar, belleza funcional y sostenibilidad.</p>
+    </div>
+    <div class="panel">
+      <h2>Objetivos y Principios</h2>
+      <ol style="margin:.4em 0 0; padding-left:1.2em">
+        <li>Consolidar a Punta del Este como destino internacional de bienestar y longevidad.</li>
+        <li>Modelo de gobernanza colaborativa público-privada-académica.</li>
+        <li>Investigación aplicada, transferencia de conocimiento e innovación tecnológica.</li>
+        <li>Cadenas de valor sostenibles en alimentación, turismo, salud, ambiente y cultura.</li>
+        <li>Implementar y certificar el <em>Sello Punta del Este Puro Bienestar</em>.</li>
+      </ol>
+      <ul style="margin:12px 0 0; padding-left:1.1em">
+        <li>Evidencia científica interdisciplinaria.</li>
+        <li>Autenticidad territorial y trazabilidad.</li>
+        <li>Inclusión, equidad y accesibilidad.</li>
+        <li>Innovación con sentido humano.</li>
+        <li>Responsabilidad ambiental y social.</li>
+        <li>Belleza funcional y coherencia sensorial.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Puro Bienestar -->
+<section id="purobienestar" class="band">
+  <div class="wrap">
+    <h2 class="section-title">Puro Bienestar — Definiciones y Alcances</h2>
+
+    <!-- Desktop/Tablet -->
+    <div class="radial">
+      <div class="ring" aria-label="Mapa de conceptos" id="ring">
+        <!-- Centro interactivo -->
+        <div class="orb" aria-hidden="true"><span class="pupil"></span></div>
+
+        <button class="tag t1" data-key="bienestar">Bienestar</button>
+        <button class="tag t2" data-key="longevidad">Longevidad</button>
+        <button class="tag t3" data-key="sostenibilidad">Sostenibilidad</button>
+        <button class="tag t4" data-key="territorio">Territorio saludable</button>
+        <button class="tag t5" data-key="integrativa">Medicina Integrativa</button>
+        <button class="tag t6" data-key="funcional">Medicina Funcional</button>
+        <button class="tag t7" data-key="pine">PINE</button>
+        <button class="tag t8" data-key="matriz">Matriz DEMMMAS</button>
+        <div class="tooltip" id="tooltip" role="status" aria-live="polite"></div>
+      </div>
+      <div class="radial-desc"><small>Tip: pasá el mouse o tocá un concepto.</small></div>
+    </div>
+
+    <!-- Mobile -->
+    <div class="radial-alt" aria-label="Conceptos clave">
+      <div class="chip-alt">Bienestar</div>
+      <div class="chip-alt">Longevidad</div>
+      <div class="chip-alt">Sostenibilidad</div>
+      <div class="chip-alt">Territorio saludable</div>
+      <div class="chip-alt">Medicina Integrativa</div>
+      <div class="chip-alt">Medicina Funcional</div>
+      <div class="chip-alt">PINE</div>
+      <div class="chip-alt">Matriz DEMMMAS</div>
+    </div>
+
+    <!-- Accordeones -->
+    <div class="panel" style="margin-top:18px">
+      <details><summary>Bienestar</summary><p>Equilibrio físico, mental, emocional, ambiental y social, sustentado en evidencia y en interacciones humanas y territoriales de calidad.</p></details>
+      <details><summary>Longevidad</summary><p>Vida con salud, funcionalidad y sentido mediante hábitos, entornos y políticas de envejecimiento activo.</p></details>
+      <details><summary>Sostenibilidad</summary><p>Armonía entre productividad, inclusión social y equilibrio ecológico.</p></details>
+      <details><summary>Territorio saludable</summary><p>Integración de políticas, empresas y estilos de vida para generar salud, cohesión y prosperidad.</p></details>
+      <details><summary>Medicina Integrativa</summary><p>Convencional + terapias complementarias basadas en evidencia, enfoque cuerpo-mente-entorno.</p></details>
+      <details><summary>Medicina Funcional</summary><p>Prevención y personalización desde las causas subyacentes de los desequilibrios.</p></details>
+      <details><summary>PINE</summary><p>Interacción de sistemas psicológico, inmunológico, neurológico y endocrino que vincula emociones, cuerpo y salud.</p></details>
+      <details><summary>Matriz DEMMMAS</summary><p>Marco con siete dimensiones: Dieta, Ejercicio, Música, Med. Integrativa, Meditación, Ambiente y Situación.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- DEMMMAS -->
+<section id="demmmas">
+  <div class="wrap">
+    <div class="panel">
+      <h2 class="section-title">DEMMMAS</h2>
+      <p>Las 7 dimensiones que estructuran el ecosistema de bienestar territorial y <strong>habilitan la certificación</strong>.</p>
+
+      <div class="matrix" style="margin-top:10px">
+        <div class="tile"><div class="pill"><span class="letter">D</span><b>Dieta</b><span class="spark"></span></div>
+          <svg class="icon-mini" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="2"/><path d="M7 13c3 0 5-2 5-5 3 0 5 2 5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <p>Producción agroalimentaria sostenible, trazabilidad y nutrición funcional basada en ciencia.</p></div>
+
+        <div class="tile"><div class="pill"><span class="letter">E</span><b>Ejercicio</b><span class="spark"></span></div>
+          <svg class="icon-mini" viewBox="0 0 24 24" fill="none"><path d="M8 18l4-4 4 4M12 14V6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <p>Movimiento como medicina preventiva: turismo activo, deporte inclusivo y prácticas de equilibrio energético.</p></div>
+
+        <div class="tile"><div class="pill"><span class="letter">M</span><b>Música</b><span class="spark"></span></div>
+          <svg class="icon-mini" viewBox="0 0 24 24" fill="none"><path d="M9 7v9a3 3 0 11-2-2.83V7h8v8a3 3 0 11-2-2.83V7" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+          <p>Armonización neuroemocional y cohesión social. Musicoterapia, experiencias inmersivas y creatividad colectiva.</p></div>
+
+        <div class="tile"><div class="pill"><span class="letter">M</span><b>Medicina Integrativa / Funcional / PINE</b><span class="spark"></span></div>
+          <svg class="icon-mini" viewBox="0 0 24 24" fill="none"><path d="M10 4h4v6h6v4h-6v6h-4v-6H4v-4h6V4z" stroke="currentColor" stroke-width="2"/></svg>
+          <p>Corazón científico que integra saber biomédico, terapias complementarias y evidencia psico-neuro-inmuno-endocrina.</p></div>
+
+        <div class="tile"><div class="pill"><span class="letter">M</span><b>Meditación</b><span class="spark"></span></div>
+          <svg class="icon-mini" viewBox="0 0 24 24" fill="none"><path d="M3 13c2 0 2-4 4-4s2 4 4 4 2-4 4-4 2 4 4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <p>Atención plena, introspección y gestión emocional consciente en programas educativos y preventivos.</p></div>
+
+        <div class="tile"><div class="pill"><span class="letter">A</span><b>Ambiente</b><span class="spark"></span></div>
+          <svg class="icon-mini" viewBox="0 0 24 24" fill="none"><path d="M20 4s-8 0-12 4-4 12-4 12 8 0 12-4 4-12 4-12z" stroke="currentColor" stroke-width="2"/></svg>
+          <p>Arquitectura biopsicosocial, eficiencia energética y regeneración ecológica del territorio.</p></div>
+
+        <div class="tile"><div class="pill"><span class="letter">S</span><b>Situación</b><span class="spark"></span></div>
+          <svg class="icon-mini" viewBox="0 0 24 24" fill="none"><path d="M12 4l2.6 5.3 5.8.8-4.2 4.1 1 5.8L12 17l-5.2 3 1-5.8L3.6 10 9.4 9.3 12 4z" stroke="currentColor" stroke-width="2"/></svg>
+          <p>Gastronomía, arte, hospitalidad y paisaje como valor sensorial y cultural del territorio.</p></div>
+      </div>
+
+      <div class="callout" id="sello">
+        <h3 style="margin:0 0 .2em">Sello “Punta del Este Puro Bienestar”</h3>
+        <p style="margin:0 0 .4em">Salida de certificación <strong>originada en DEMMMAS</strong>. La postulación requiere evidencia de integración real de las dimensiones (sugerido ≥5/7) y trazabilidad.</p>
+        <ul style="margin:.2em 0 0; padding-left:1.1em">
+          <li><strong>Niveles:</strong> Bronce (básico), Plata (integración parcial), Oro (excelencia integral).</li>
+          <li><strong>Proceso:</strong> adhesión ética, autoevaluación, auditoría colaborativa, otorgamiento y revisión anual.</li>
+          <li><strong>Beneficios:</strong> visibilidad, red internacional, capacitación y reconocimiento oficial.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Agenda -->
+<section id="agenda" class="evento">
+  <div class="wrap">
+    <h2>Próximo Congreso</h2>
+    <p style="max-width:860px">Congreso de Bienestar Científico 360° — Punta del Este. Programa, ponencias y registro en el sitio oficial.</p>
+    <a class="cta" href="https://asociacionspa.com.ar/summit-wellness-360/2025/" target="_blank" rel="noopener">Ir al Congreso 360°</a>
+  </div>
+</section>
+
+<!-- Contacto -->
+<section id="contacto">
+  <div class="wrap grid-2">
+    <div class="panel">
+      <h2>Unite / Contacto</h2>
+      <p>Sumate al clúster, ofrecé actividades o solicitá certificación DEMMMAS.</p>
+      <form action="https://formspree.io/f/mkgqarbn" method="POST">
+        <label for="nombre">Nombre</label>
+        <input id="nombre" name="nombre" type="text" placeholder="Tu nombre" required>
+        <label for="email">E-mail</label>
+        <input id="email" name="_replyto" type="email" placeholder="tu@correo.com" required>
+        <label for="telefono">Teléfono</label>
+        <input id="telefono" name="telefono" type="tel" placeholder="+598 9 000 0000">
+        <label for="motivo">Motivo</label>
+        <select id="motivo" name="motivo" required>
+          <option value="" disabled selected>Elegí una opción</option>
+          <option>Sumarme al cluster</option>
+          <option>Ofrecer actividad</option>
+          <option>Solicitar certificación DEMMMAS</option>
+          <option>Consulta general</option>
+        </select>
+        <input type="hidden" name="_next" value="/gracias.html">
+        <input type="text" name="_gotcha" style="display:none">
+        <button class="btn" type="submit">Enviar</button>
+        <p class="note">El campo <em>motivo</em> se envía como un parámetro más, compatible con Formspree.</p>
+      </form>
+    </div>
+    <div class="panel">
+      <h2>Redes y Contactos</h2>
+      <p>Seguinos para agenda, recursos y certificaciones.</p>
+      <div class="links" style="margin-top:10px">
+        <a class="chip" href="mailto:ClusterPuntadelEsteMail@gmail.com">ClusterPuntadelEsteMail@gmail.com</a>
+        <a class="chip" href="https://instagram.com/clusterpuntadeleste" target="_blank" rel="noopener">Instagram</a>
+        <a class="chip" href="http://linkedin.com/company/clusterpuntadeleste" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p style="margin:0">Cluster Wellness Lifestyle Punta del Este — ciencia, innovación y pertenencia local.</p>
+    <p style="margin:.4em 0 0;font-size:14px">Desestacionalizar es bienestar: océano, bosques e infraestructura para vivir la salud todo el año.</p>
+    <div class="footer-social">
+      <a href="mailto:ClusterPuntadelEsteMail@gmail.com" title="Email" aria-label="Email">
+        <svg class="icon-social" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2"><path d="M4 6h16v12H4z"/><path d="M22 6l-10 7L2 6"/></svg>
+      </a>
+      <a href="https://instagram.com/clusterpuntadeleste" target="_blank" rel="noopener" title="Instagram" aria-label="Instagram">
+        <svg class="icon-social" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3"/><circle cx="17" cy="7" r="1.2" fill="#FFFFFF" stroke="none"/></svg>
+      </a>
+      <a href="http://linkedin.com/company/clusterpuntadeleste" target="_blank" rel="noopener" title="LinkedIn" aria-label="LinkedIn">
+        <svg class="icon-social" viewBox="0 0 24 24" fill="#FFFFFF"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM0 8h5v16H0zM8 8h4.8v2.2h.07C13.64 8.84 15.4 8 17.5 8 22 8 24 10.7 24 15.2V24h-5v-7.6c0-1.8-.03-4.1-2.5-4.1-2.5 0-2.88 1.95-2.88 4v7.7H8V8z"/></svg>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* Ajuste opcional de canonical/OG desde data-site-url */
+(function(){
+  var site = document.body.getAttribute('data-site-url') || '';
+  if(!site) return;
+  var c = document.getElementById('canonical'); if(c) c.href = site;
+  document.querySelectorAll('meta[property="og:url"]').forEach(m=>m.setAttribute('content', site));
+})();
+
+/* Menú mobile */
+const nav = document.getElementById('nav');
+document.querySelectorAll('.nav a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
+
+/* Tooltips del radial */
+const defs = {
+  bienestar: "Equilibrio físico, mental, emocional, ambiental y social con base científica.",
+  longevidad: "Vida con salud, funcionalidad y sentido; hábitos, entornos y políticas activas.",
+  sostenibilidad: "Armonía entre productividad, inclusión social y equilibrio ecológico.",
+  territorio: "Integración de políticas, empresas y estilos de vida para salud y prosperidad.",
+  integrativa: "Convencional + terapias con evidencia; persona como unidad cuerpo-mente-entorno.",
+  funcional: "Prevención y personalización desde la causa de los desequilibrios.",
+  pine: "Interacción psico-inmuno-neuro-endocrina que vincula emociones, cuerpo y salud.",
+  matriz: "Marco con 7 dimensiones: D, E, M, M, M, A, S."
+};
+const ring = document.getElementById('ring');
+const tooltip = document.getElementById('tooltip');
+function showTip(el){
+  document.querySelectorAll('.tag').forEach(b=>b.classList.remove('active'));
+  el.classList.add('active');
+  const key = el.dataset.key;
+  tooltip.textContent = defs[key] || "";
+  const r = ring.getBoundingClientRect();
+  const b = el.getBoundingClientRect();
+  const left = b.left + b.width/2 - r.left;
+  const top  = b.top  - r.top - 10;
+  tooltip.style.left = left + "px";
+  tooltip.style.top  = top  + "px";
+  tooltip.style.display = "block";
+}
+function hideTip(){ tooltip.style.display="none"; document.querySelectorAll('.tag').forEach(b=>b.classList.remove('active')); }
+if(ring){
+  document.querySelectorAll('.tag').forEach(btn=>{
+    ['click','mouseenter','focus'].forEach(evt=>btn.addEventListener(evt,()=>showTip(btn)));
+  });
+  ring.addEventListener('mouseleave', hideTip);
+}
+
+/* Ojo que sigue el mouse/touch */
+(function(){
+  if(!ring) return;
+  const orb = ring.querySelector('.orb');
+  const pupil = ring.querySelector('.pupil');
+  const max = 18;
+
+  function moveFromPoint(pt){
+    const ob = orb.getBoundingClientRect();
+    const cx = ob.left + ob.width/2;
+    const cy = ob.top  + ob.height/2;
+    const dx = pt.clientX - cx;
+    const dy = pt.clientY - cy;
+    const dist = Math.hypot(dx,dy) || 1;
+    const k = Math.min(1, max / dist);
+    const tx = dx * k;
+    const ty = dy * k;
+    pupil.style.transform = `translate(calc(-50% + ${tx}px), calc(-50% + ${ty}px))`;
+  }
+  function reset(){ pupil.style.transform = 'translate(-50%,-50%)'; }
+
+  ring.addEventListener('mousemove', e=>moveFromPoint(e));
+  ring.addEventListener('mouseenter', e=>moveFromPoint(e));
+  ring.addEventListener('mouseleave', reset);
+  ring.addEventListener('touchmove', e=>{
+    if(!e.touches || !e.touches[0]) return;
+    moveFromPoint(e.touches[0]);
+  }, {passive:true});
+  ring.addEventListener('touchend', reset);
+})();
+</script>
+</body>
+</html>
+
